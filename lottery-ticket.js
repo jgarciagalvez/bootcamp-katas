@@ -5,3 +5,5 @@ function checkLottery(ticketNumber, winningTicket) {
     }
     return message
 }
+
+let x = checkLottery(1,2)
