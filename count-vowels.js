@@ -4,7 +4,7 @@
 
 function countVowels(letters) {
     let vowelsCount = 0
-    for (letter in letters) {
+    for (let letter of letters) {
         if (letter === 'a' || letter === 'e' || letter === 'i' || letter === 'o' || letter === 'u') {
             vowelsCount++
         }
