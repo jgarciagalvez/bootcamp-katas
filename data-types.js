@@ -42,3 +42,13 @@ function formatDisplayName(firstName, lastName) {
 // The array can contain a combination of numbers, strings and booleans.
 // The function should find all numbers in the array, add them and return the sum.
 // If there are no numbers, the function should return 0.
+
+function sumNumbers(arr) {
+    let sum = 0
+    for (let n of arr) {
+        if (typeof n === 'number') {
+            sum = sum + n
+        }
+    }
+    return sum
+}
