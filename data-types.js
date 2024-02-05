@@ -35,6 +35,7 @@ function formatDisplayName(firstName, lastName) {
         return 'Error, not a string'
     }
 }
+console.log(formatDisplayName('John', 0));
 
 
 // ## Sum Numbers in Array
