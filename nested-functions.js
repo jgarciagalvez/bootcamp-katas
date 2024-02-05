@@ -1,4 +1,5 @@
-// ## Sum of Squares
+// ## Sum of Squares ##
+
 // Your task is to create two functions.
 // The first function, calculateSquare, should take a number as a parameter 
 // and return its square.
@@ -14,7 +15,6 @@ function calculateSquare(n) {
     }
 
 }
-
 function sumOfSquares(a, b) {
     if (typeof a === 'number' && typeof b === 'number') {
         return calculateSquare(a) + calculateSquare(b)
@@ -23,6 +23,64 @@ function sumOfSquares(a, b) {
     }
 }
 
-console.log(sumOfSquares(5, 5)) // 50
-console.log(sumOfSquares(4, 10)) // 116
-console.log(sumOfSquares('two', 10)) // 116
+// Tests for function
+
+// console.log(sumOfSquares(5, 5)) // 50
+// console.log(sumOfSquares(4, 10)) // 116
+// console.log(sumOfSquares('two', 10)) // 116
+
+
+
+// ## Shapes Area ##
+
+// Your task is to create three functions in JavaScript to calculate the area of rectangles and triangles.
+// The first two functions calcAreaRectangle and calcAreaTriangle will calculate the areas of a rectangle and 
+// a triangle, respectively.
+// The formula for a rectangle is a * b, while for a triangle it's a * b / 2.
+// The third function calcArea, takes 2 numbers and a string 'rectangle' or 'triangle' and decides which calculation 
+// to perform based on the given string.
+// If a different string, or no string, is passed, return null.
+
+// Automatic tests are not available for this kata. Please use the tests below in NodeJS.
+
+function calcAreaRectangle(a, b) {
+    return a * b
+}
+
+function calcAreaTriangle(a, b) {
+    return (a * b) / 2
+}
+
+function calcArea (a, b, c) {
+    if (c === 'rectangle') {
+         return calcAreaRectangle (a, b)
+    } else if (c === 'triangle') {
+        return calcAreaTriangle (a, b)
+    }
+    return null
+}
+
+console.log(calcArea(100, 5, 'rectangle')) // 500
+console.log(calcArea(100, 50, "triangle")) // 250
+console.log(calcArea(10, 10, "rectangle")) // 100
+console.log(calcArea(10, 10, "triangle")) // 50
+console.log(calcArea(30, 20)) // null
+console.log(calcArea(30, 20, "cube")) // null
+
+
+
+
+
+
+
+// ## Sum of Even Numbers
+
+// Your task is to create a JavaScript function sumEvenNumbers that processes an array of numbers.
+// For each number in the array, the function should call an external function isEven to check if the number is even.
+// Then, it should sum all the even numbers and return the total sum.
+
+// Automatic tests are not available for this kata, please use the tests below in NodeJs.
+
+// sumEvenNumbers([1, 20, 5, 4]) // 24
+// sumEvenNumbers([0, 100, -20, 5.5, -10]) // 70
+// sumEvenNumbers([1, 2, 3, 4, 5, 6]) // 12
