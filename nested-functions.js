@@ -41,7 +41,6 @@ function sumOfSquares(a, b) {
 // to perform based on the given string.
 // If a different string, or no string, is passed, return null.
 
-// Automatic tests are not available for this kata. Please use the tests below in NodeJS.
 
 function calcAreaRectangle(a, b) {
     return a * b
@@ -60,16 +59,14 @@ function calcArea (a, b, c) {
     return null
 }
 
-console.log(calcArea(100, 5, 'rectangle')) // 500
-console.log(calcArea(100, 50, "triangle")) // 250
-console.log(calcArea(10, 10, "rectangle")) // 100
-console.log(calcArea(10, 10, "triangle")) // 50
-console.log(calcArea(30, 20)) // null
-console.log(calcArea(30, 20, "cube")) // null
+// Tests for function
 
-
-
-
+// console.log(calcArea(100, 5, 'rectangle')) // 500
+// console.log(calcArea(100, 50, "triangle")) // 250
+// console.log(calcArea(10, 10, "rectangle")) // 100
+// console.log(calcArea(10, 10, "triangle")) // 50
+// console.log(calcArea(30, 20)) // null
+// console.log(calcArea(30, 20, "cube")) // null
 
 
 
@@ -79,8 +76,27 @@ console.log(calcArea(30, 20, "cube")) // null
 // For each number in the array, the function should call an external function isEven to check if the number is even.
 // Then, it should sum all the even numbers and return the total sum.
 
-// Automatic tests are not available for this kata, please use the tests below in NodeJs.
 
-// sumEvenNumbers([1, 20, 5, 4]) // 24
-// sumEvenNumbers([0, 100, -20, 5.5, -10]) // 70
-// sumEvenNumbers([1, 2, 3, 4, 5, 6]) // 12
+function isEven(a) {
+    if (a % 2 === 0) {
+        return true
+    } else {
+        return false
+    }
+}
+
+function sumEvenNumbers(arr) {
+    let sum = 0
+    for (let i = 0; i < arr.length; i++) {
+        if (isEven(arr[i])) {
+            sum = sum + arr[i]
+        }
+    }
+    return sum
+}
+
+// Tests for the function
+
+// console.log(sumEvenNumbers([1, 20, 5, 4])) // 24
+// console.log(sumEvenNumbers([0, 100, -20, 5.5, -10])) // 70
+// console.log(sumEvenNumbers([1, 2, 3, 4, 5, 6])) // 12
