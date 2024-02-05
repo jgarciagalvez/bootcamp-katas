@@ -18,3 +18,25 @@ function sumNumbers(n) {
 // The function, named extractAndSort, will take two parameters: an array of numbers and a numerical 
 // value n indicating how many elements to extract.
 // Before returning the output array, convert it into a string.
+
+function extractAndSort(arr, n) {
+    let reversedArray = []
+    for (let i = 0; i < n ; i++) {
+        reversedArray[n - 1 - i] = arr[i] 
+    }
+    return String(reversedArray)
+}
+
+
+
+// Just tried a different approach, but ended up being more complicated. 
+// First function, which is simpler, is better
+// function extractAndSort(arr, n) {
+//     let reversedArray = []
+//     let reversedArrayPosition = 0
+//     for (let i = n - 1; i >= 0 ; i--) {
+//         reversedArray[reversedArrayPosition] = arr[i]
+//         reversedArrayPosition++
+//     }
+//     return String(reversedArray)
+// }
