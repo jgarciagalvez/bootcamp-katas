@@ -77,4 +77,41 @@ console.log(calculateTotalPrice(products)) // 190
  console.log(calculateTotalPrice(b)) // 1505
 
 
+ // Summing Positive Numbers in Nested Arrays
+
+// Your task is to create a function named sumPositiveNumbers.
+// This function should take an object as its parameter.
+// Within this object, there are two properties array1 and array2, each containing 
+// an array of numbers.
+// The function should calculate the sum of all positive numbers from both arrays 
+// combined and return the total sum.
+
+function sumPositiveNumbers(obj) {
+    let result = 0
+    console.log(obj.array1)
+    for (let num of obj.array1) {
+        if (num > 0) {
+            result += num
+        }
+    }
+    for (let num of obj.array2) {
+        if (num > 0) {
+            result += num
+        }
+    }
+    return result
+}
+
+let a2 = {
+    array1: [1, -3, 5, 7],
+    array2: [10, -2, 4, -5]
+}
+console.log(sumPositiveNumbers(a2)) // 27
+
+let b2 = {
+    array1: [10, 20, -9],
+    array2: [200, 1]
+}
+console.log(sumPositiveNumbers(b2)) // 231
+
 console.log(countWindows(house));
