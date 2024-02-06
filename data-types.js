@@ -35,8 +35,22 @@ function formatDisplayName(firstName, lastName) {
         return 'Error, not a string'
     }
 }
-console.log(formatDisplayName('John', 0));
 
+// It's more efficient to validate for errors first and then run the function
+// we want to run
+
+function formatDisplayName2(firstName, lastName) {
+    if (!lastName) {
+        return 'Last name missing'
+    }
+    if (typeof firstName !== 'string' || typeof lastName !== 'string') {
+        return 'Error, not a string'
+    }
+    return firstName + ' ' + lastName
+}
+
+console.log(formatDisplayName('John', 0));
+console.log(formatDisplayName2('John', 'Smith'))
 
 // ## Sum Numbers in Array
 // Create a function sumNumbers that takes an array as a parameter.

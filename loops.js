@@ -27,6 +27,18 @@ function extractAndSort(arr, n) {
     return String(reversedArray)
 }
 
+// Another option to solve this could be like this
+
+function extractAndSortJ(arr, n) {
+    let reversedArray = []
+    let j = 0
+    for (let i = n - 1; i >= 0 ; i--) {
+        reversedArray[j] = arr[i]
+        j++ 
+    }
+    return String(reversedArray)
+}
+
 
 
 // Just tried a different approach, but ended up being more complicated. 
