@@ -210,7 +210,6 @@ greeter.sayHello() // 'Hello guest'
 // with internal count value either increased by 1 or decreased by 1.
 
 let counter = {
-    count: 0,
     increase: function(counter) {
         counter.count++
         return counter
@@ -224,3 +223,58 @@ console.log(counter.increase({ count: 1 })) // { count: 2 }
 console.log(counter.increase({ count: 10 })) // { count: 11 }
 console.log(counter.decrease({ count: 1 })) // { count: 0 }
 console.log(counter.decrease({ count: 10 })) // { count: 9 }
+
+
+// Nutrition
+// In this kata, you're going to create a mini JS library that is useful to 
+// calculate a number of values related to nutrition.
+
+// Create an object named nutrition
+// Within the object, create the following methods. For each method you have the formula that should be used to calculate the result.
+// calculateCaloriesFromMacros(protein, carbs, fat)
+// Total Calories = (Protein * 4) + (Carbs * 4) + (Fat * 9)
+
+// calculateBMI(weight, height)
+// BMI = weight / (height squared) * 10000
+
+// calculateBMR(weight, height, age, gender)
+// For 'male', BMR = 10 * weight + 6.25 * height - 5 * age + 5
+// For 'femal', BMR = 10 * weight + 6.25 * height - 5 * age - 161
+
+// calculateWaterIntake(weight)
+// Water Intake = weight * 0.033
+
+let nutrition = {
+    calculateCaloriesFromMacros(protein, carbs, fat) {
+        let totalCal = (protein * 4) + (carbs * 4) + (fat * 9)
+        return totalCal
+    },
+    calculateBMI(weight, height) {
+        let BMI = weight / (height * height) * 10000
+        return BMI
+    },
+    calculateBMR(weight, height, age, gender){
+        let BMR
+        if (gender === 'male'){
+            BMR = 10 * weight + 6.25 * height - 5 * age + 5
+        }
+        if (gender === 'female') {
+            BMR = 10 * weight + 6.25 * height - 5 * age - 161
+        }
+        return BMR
+    },
+    calculateWaterIntake(weight) {
+        let waterIntake = weight * 0.033
+        return waterIntake
+    }
+}
+
+
+console.log(nutrition.calculateCaloriesFromMacros(150, 100, 50)) // 1450
+console.log(nutrition.calculateCaloriesFromMacros(100, 120, 30)) // 1150
+console.log(nutrition.calculateBMI(80, 180)) // ~27.05
+console.log(nutrition.calculateBMR(80, 180, 35, 'male')) // 1755
+console.log(nutrition.calculateBMR(60, 170, 26, 'female')) // 1371.5
+console.log(nutrition.calculateWaterIntake(80)) // 2.64
+console.log(nutrition.calculateWaterIntake(55)) // ~1.81
+
