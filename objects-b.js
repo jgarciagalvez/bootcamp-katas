@@ -278,3 +278,48 @@ console.log(nutrition.calculateBMR(60, 170, 26, 'female')) // 1371.5
 console.log(nutrition.calculateWaterIntake(80)) // 2.64
 console.log(nutrition.calculateWaterIntake(55)) // ~1.81
 
+
+
+// Find the Smallest Number
+
+// Create a JavaScript function called findSmallestNumber.
+// This function should take between 2 and 4 numbers as its parameters and return the smallest number.
+// Use the correct Math method.
+
+
+function findSmallestNumber(a, b, c, d) {
+    if (d) {
+        return Math.min(a,b,c,d)
+    } else if (c) {
+        return Math.min(a, b, c)
+    } else if (b) {
+        return Math.min(a,b)
+    } else {
+        return "Provide between 2 and 4 numbers"  
+    }
+}
+
+console.log(findSmallestNumber(8))
+console.log(findSmallestNumber(8,1))
+console.log(findSmallestNumber(2,71,5))
+console.log(findSmallestNumber(20,80,-5, 10))
+console.log(findSmallestNumber(20,80,-5, 10,25, -10))
+
+// function findSmallestNumber2(a, b, c, d) {
+//     if (typeof b === 'undefined') {
+//         return 'Please provide between 2 or 4 numbers'
+//     }
+//     if (typeof c === 'undefined') {
+//         c = Math.min(a, b)
+//     } 
+//     if (typeof d === 'undefined') {
+//         d = Math.min(a,b,c)
+//     }
+//     return Math.min(a,b,c,d)
+// }
+
+// console.log(findSmallestNumber2(8))
+// console.log(findSmallestNumber2(8,1))
+// console.log(findSmallestNumber2(2,71,5))
+// console.log(findSmallestNumber2(20,80,-5, 10))
+// console.log(findSmallestNumber2(20,80,-5, 10,25, -10))
