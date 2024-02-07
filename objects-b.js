@@ -56,7 +56,6 @@ console.log(updateNestedArray(b, 0, "kiwi"))
 // {"fruits": ["kiwi", "strawberry"]}
 
 
-
 // Reducing Product Prices by 10%
 
 // Write a function named reducePrices.
@@ -72,3 +71,66 @@ function reducePrices(products) {
     return products
 }
 
+
+// Add Age
+
+// Your task is to create a JavaScript function named addAge.
+// This function should take two parameters: an object and a number.
+// The function should add the provided number to the object as age 
+// and return the updated object.
+
+function addAge(obj, n) {
+    obj.age = n
+    return obj
+}
+
+// Add Ages
+
+// Your task is to create a JavaScript function named addAges.
+// This function should take two parameters: an array of objects and 
+// an array of numbers of equal length.
+// The function should add the numbers in the second array to the objects 
+// as age, following the corresponding index, and return the updated array of objects.
+
+
+function addAges(objects, ages) {
+    let i = 0
+    for (let obj of objects) {
+        obj.age = ages[i]
+        i++
+    }
+    return objects
+}
+
+// addAges([{'name':'Alice','age':21},{'name':'Bob','age':51}],[21,51])
+
+
+// Format the Data
+
+// Create a function formatData that receives an array of products from a database.
+// Unfortunately, the data is corrupt, some of the objects in the array have a 
+// price field of type number but others are strings.
+// Some of the products have an inStock field of type boolean, others are the 
+// string 'yes' or 'no' and others don't have the field at all.
+
+// The functions should:
+
+// convert all products prices to numbers
+// convert all products inStock property to booleans ('yes' -> true, 'no' -> false) 
+// and add a default true if the property doesn't exist
+// then return the updated and properly formatted array
+
+
+function formatData(products) {
+    for (let product of products) {
+        product.price = Number(product.price)
+        if (product.inStock === 'yes' || !product.inStock) {
+            product.inStock = true
+        } else if (product.inStock === 'no') {
+            product.inStock = false
+        }
+    }
+    return products
+}
+
+console.log(formatData([{'name':'shoes','price':10,'inStock':true},{'name':'skirt','price':'50','inStock':'yes'}]))
