@@ -27,8 +27,48 @@ function markAsValue(obj, string) {
     return obj
 }
 
-let a = {"total": "99", "status": "pending"}
-console.log(markAsValue(a, "accepted")) // {"total": "99", "status": "accepted"}
-let b = {"total": "71.5", "status": "pending"}
-console.log(markAsValue(b, "denied")) // {"total": "71.5", "status": "denied"}
+// let a = {"total": "99", "status": "pending"}
+// console.log(markAsValue(a, "accepted")) // {"total": "99", "status": "accepted"}
+// let b = {"total": "71.5", "status": "pending"}
+// console.log(markAsValue(b, "denied")) // {"total": "71.5", "status": "denied"}
+
+
+// Updating a Nested Array in an Object
+
+// Create a JavaScript function named updateNestedArray.
+// This function should take three parameters: an object, a number and a string.
+// The object contains a nested array of strings. 
+// The function should update the element in the array at the index specified 
+// by the number parameter to the value provided by the string parameter.
+// After updating, the function should return the modified object.
+
+function updateNestedArray(obj, i, string) {
+    obj.fruits[i] = string
+    return obj
+}
+
+
+let a = {"fruits": ["apple", "banana"]}
+console.log(updateNestedArray(a, 1, "cherry")) 
+// {"fruits": ["apple", "cherry"]}
+let b = {"fruits": ["pineapple", "strawberry"]}
+console.log(updateNestedArray(b, 0, "kiwi")) 
+// {"fruits": ["kiwi", "strawberry"]}
+
+
+
+// Reducing Product Prices by 10%
+
+// Write a function named reducePrices.
+// The function takes an array of objects as a parameter. 
+// Each object represents a product with a price property.
+// The task is to reduce the price property of each product by 10%.
+// Return the array with the updated product objects.
+
+function reducePrices(products) {
+    for (let product of products) {
+        product.price *= 0.9
+    }
+    return products
+}
 
