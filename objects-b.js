@@ -124,13 +124,52 @@ function addAges(objects, ages) {
 function formatData(products) {
     for (let product of products) {
         product.price = Number(product.price)
-        if (product.inStock === 'yes' || !product.inStock) {
+        if (product.inStock === 'no' || product.inStock === false) {
+        product.inStock = false
+        } else if (product.inStock === 'yes' || !product.inStock) {
             product.inStock = true
-        } else if (product.inStock === 'no') {
-            product.inStock = false
         }
     }
     return products
 }
 
 console.log(formatData([{'name':'shoes','price':10,'inStock':true},{'name':'skirt','price':'50','inStock':'yes'}]))
+console.log(formatData([{'name':'jacket','price':90.5,'inStock':false}]))
+
+// Delete User Password
+
+// A query has been made to a database and a user object was returned, including 
+// the password property, which should not be shared for security reasons.
+// Create a function removePassword that takes a user in the format of an object, 
+// deletes the password from the user, then returns the user with all its fields but 
+// not the password.
+
+function removePassword(user) {
+    delete user.password 
+    return user
+}
+
+
+// Delete Non-Encrypted Passwords
+
+// A query has been made to a database and an array of users was returned, 
+// including the password property for each user object.
+// Some of the passwords are encrypted (the user has an encrypted: true property), 
+// while others are not.
+// Create a function removePasswords that takes a list of users in the format of an 
+// array of objects, deletes the password field only from users whose password is NOT 
+// encrypted, as well as the encrypted property, then returns the updated users array.
+
+
+function removePasswords(users) {
+    for (let user of users) {
+        if (!user.encrypted) {
+            delete user.password
+        }
+        delete user.encrypted
+    }
+    return users
+}
+
+console.log(removePasswords([{'name':'Jack','age':45},{'name':'Bob','age':27,'password':'9!4%2!@'}]))
+
