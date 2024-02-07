@@ -303,8 +303,9 @@ console.log(findSmallestNumber(8))
 console.log(findSmallestNumber(8,1))
 console.log(findSmallestNumber(2,71,5))
 console.log(findSmallestNumber(20,80,-5, 10))
-console.log(findSmallestNumber(20,80,-5, 10,25, -10))
+console.log(findSmallestNumber(20,80,5, 10,25, 1))
 
+// Other option (although I would reorder the validation checks from d down)
 // function findSmallestNumber2(a, b, c, d) {
 //     if (typeof b === 'undefined') {
 //         return 'Please provide between 2 or 4 numbers'
@@ -318,8 +319,57 @@ console.log(findSmallestNumber(20,80,-5, 10,25, -10))
 //     return Math.min(a,b,c,d)
 // }
 
-// console.log(findSmallestNumber2(8))
-// console.log(findSmallestNumber2(8,1))
-// console.log(findSmallestNumber2(2,71,5))
-// console.log(findSmallestNumber2(20,80,-5, 10))
-// console.log(findSmallestNumber2(20,80,-5, 10,25, -10))
+
+
+
+// Correct Square Roots
+
+// Create a function checkSquareRoot that takes an array of objects.
+// Each object contains a value and a squareRoot property, where the squareRoot indicates the square root of the value.
+// If the square root is correct, add a property correct with a value of true to the object, otherwise false.
+// The function should then return the array of objects with their new correct field.
+
+function checkSquareRoot(objects) {
+    for (let item of objects) {
+        item.correct = false
+        if (Math.sqrt(item.value) === item.squareRoot) {
+            item.correct = true
+        }
+    }
+    return objects
+}
+
+// Win the lottery
+
+// Create a function winTheLottery that takes an array of 4 strings, as per the tests below.
+// The function should generate a random number between 0 and 4 which will be used to extract one of the strings from the array.
+// The functions should then return the extracted string.
+
+
+
+function winTheLottery(arr) {
+    let i = Math.floor(Math.random() * 4)
+    return arr[i]
+}
+
+console.log(winTheLottery(['lose', 'lose', 'win', 'lose'])) // sometimes 'win', sometimes 'lose'
+
+// This is a solution I came up with first. Not ideal, but it worked
+// function winTheLottery(array) {
+//     let n = Math.random() * 10
+//     if (n < 2.5) {
+//         i = 0 
+//     }
+//     if (n >=2.5 && n < 5) {
+//         i = 1
+//     }
+//     if (n >=5 && n < 7.5) {
+//         i = 2
+//     }
+//     if (n >= 7.5) {
+//         i = 3
+//     }
+//     return array[i]
+// }
+
+
