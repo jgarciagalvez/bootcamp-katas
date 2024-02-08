@@ -104,16 +104,12 @@ const divide = (a, b) => { return a / b }
 const checkPositive = (n) => { return n > 0 ? true : false }
 
 
-
-
-
-
 // Concatenation to Template Literal
 
 // Convert the following String Concatenation into a Template Literal.
 
 function greet(age, city) {
-    return 'Hello, I\'m ' + age + ' years old and I\'m from ' + city + '!'
+    return `Hello, I'm ${age} years old and I'm from ${city}!`
 }
 
 // Time Greet
@@ -122,6 +118,13 @@ function greet(age, city) {
 // Inside the function, create a second arrow function checkTime that takes a parameter t (a number).
 // Within the checkTime function, use a ternary operator to check if t is less than 12, if it is, return 'morning', otherwise return 'evening'.
 // Within the greetTime function, return a template literal that includes the invokation of the function checkTime, passing time as a parameter, to then return either of the following strings:
+
+const greetTime = time => {
+    const checkTime = t => {return t < 12 ? 'morning' : 'evening'}
+    return `Good ${checkTime(time)}`
+} 
+
+console.log(greetTime(5))
 
 'Good morning'
 'Good evening'
