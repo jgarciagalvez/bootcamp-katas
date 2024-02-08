@@ -8,3 +8,12 @@ function checkVehicle(vehicle) {
     }
     return 'not allowed'
 }
+
+// Simplified function
+
+const checkVehicle2 = vehicle => {
+    const condition = vehicle !== 'car' && vehicle !== 'truck' && vehicle !== 'motorbike'
+    return (condition) ? 'allowed' : 'not allowed'
+}
+
+console.log(checkVehicle2('truck'))

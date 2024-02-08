@@ -1,4 +1,5 @@
 // ## Function Add Discount
+
 // Your goal is to write a JavaScript function named addDiscount that 
 // takes two parameters: price and discount.
 // The function should check if both parameters are numbers. If they are, it should 
@@ -15,7 +16,18 @@ function addDiscount(price, discount) {
     }
 }
 
+// Simplified Function 
+
+function addDiscount2(price, discount) {
+    let isValidInput = typeof price === 'number' && typeof discount === 'number'
+    return isValidInput ? price *= (1 - discount) : 'Error: Invalid input' 
+} 
+
+// console.log(addDiscount2(100,0.5))
+
+
 // ## Formatting Name
+
 // Create a JavaScript function named formatDisplayName that takes two parameters: 
 // a user's first name and last name.
 // If the last name is not provided, the function should return the error message: 
@@ -36,6 +48,7 @@ function formatDisplayName(firstName, lastName) {
     }
 }
 
+
 // It's more efficient to validate for errors first and then run the function
 // we want to run
 
@@ -49,8 +62,20 @@ function formatDisplayName2(firstName, lastName) {
     return firstName + ' ' + lastName
 }
 
+// Simplified function
+
+function formatDisplayName3(firstName, lastName) {
+    let isValidInput = typeof firstName === 'string' && typeof lastName === 'string'
+    return (!lastName) 
+        ? 'Last name missing'
+        : (isValidInput) 
+            ? firstName + ' ' + lastName
+            : 'Error, not a string'
+}
+
 console.log(formatDisplayName('John', 0));
 console.log(formatDisplayName2('John', 'Smith'))
+console.log(formatDisplayName3('John', 0))
 
 // ## Sum Numbers in Array
 // Create a function sumNumbers that takes an array as a parameter.

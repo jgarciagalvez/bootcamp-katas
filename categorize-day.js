@@ -30,6 +30,24 @@ function categorizeDay(temperature, weather) {
     return day
 }
 
+const categorizeDay2 = (temp, weather) => {
+    return (temp >= 25 && weather === 'sunny')
+        ? 'Beach day'
+        : (temp >= 15)
+            ? (weather === 'sunny') 
+                ? 'Park day'
+                : (weather === 'rainy')
+                    ? 'Museum day'
+                    : "Causual day"
+            : (weather === 'rainy')
+                ? 'Stay home'
+                : 'Casual Day'
+}
+
+
+console.log(categorizeDay2(26,'rainy'))
+
+
 // Another function that categorise days based on weather first
 // function categorizeDay(temperature, weather) {
 //     let day = 'Casual day'
