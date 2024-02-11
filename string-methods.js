@@ -108,7 +108,71 @@ function getCount(str) {
     return count;
   }
 
+  // Tests
+
   console.log(getCount('aeiou'))
   console.log(getCount('arty'))
   console.log(getCount(5))
-	
+
+  
+  // Invert Values
+
+// Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
+
+
+function invert(arr){
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] *= -1
+    }
+    return arr
+}
+
+// Tests
+
+console.log(invert([1,2,3,4,5])) // [-1,-2,-3,-4,-5]
+console.log(invert([1,-2,3,-4,5])) // [-1,2,-3,4,-5]
+console.log(invert([])) // []
+
+
+// Calculates average
+
+// Write a function which calculates the average of the numbers in a given list.
+// Note: Empty arrays should return 0.
+
+function findAverage(array) {
+    // Check that the array is not empty
+    if (array.length === 0) return 0;
+    let sum = 0
+    for (let e of array) {
+        sum += e
+    } 
+    return sum /= array.length;
+}
+
+console.log(findAverage([1,1,1]))
+
+
+// There was a test in your class and you passed it. Congratulations!
+// But you're an ambitious person. You want to know if you're better than the average student in your class.
+
+// You receive an array with your peers' test scores. Now calculate the average and compare your score!
+
+// Return True if you're better, else False!
+
+// Note:
+// Your points are not included in the array of your class's points. For calculating the average point you may add your point to the given array!
+
+function betterThanAverage(classPoints, yourPoints) {
+    let sum = yourPoints
+    for (let score of classPoints) {
+        sum += score
+    }
+    let average = sum / (1 + classPoints.length)
+    return yourPoints > average ? true : false
+}
+
+  console.log(betterThanAverage([2, 3], 5))
+
+
+
+  
