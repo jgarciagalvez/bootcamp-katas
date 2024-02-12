@@ -289,3 +289,169 @@ function replaceProductPrice1(products, id) {
 
 console.log(replaceProductPrice([{'id':1,'price':100},{'id':2,'price':200}],1)) // [{'id':1,'price':110},{'id':2,'price':200}]
 console.log(replaceProductPrice([{'id':1,'price':100},{'id':2,'price':200}],2)) // [{'id':1,'price':100},{'id':2,'price':220}]
+
+/* 
+#####################################################
+SOME KATAS
+#####################################################
+*/
+
+
+// Contains High Value
+
+// Create a function called containsHighValue.
+// This function will take an array of numbers and check if the array contains any number greater than a specified value.
+// The function should use the some() method to perform this check and return true if such a number exists, or false otherwise.
+
+const containsHighValue = (numbers, n) => numbers.some(number => number > n)
+
+// Tests
+
+console.log(containsHighValue([1,2,3,4,5],4)) // TRUE
+console.log(containsHighValue([10,100,1000],55)) // TRUE
+console.log(containsHighValue([10,100,1000],2000)) // FALSE
+console.log(containsHighValue([1,2,3],10)) // FALSE
+
+
+
+// Check And Transform
+
+// Create a JavaScript function named checkAndTransform.
+// This function will take two parameters: an array of numbers and a threshold value.
+// First, it should check if any number in the array is greater than the threshold.
+// If such a number exists, then use the map() method to double each number in the array.
+// The function should return the transformed array if there's a number greater than the threshold, or the original array otherwise.
+
+const checkAndTransform = (numbers, n) => {
+    if (numbers.some(number => number > n)) {
+        return numbers.map(number => number * 2) 
+    } 
+    return numbers
+}
+
+console.log(checkAndTransform([1,4,6,8],5)) // [2,8,12,16]
+console.log(checkAndTransform([2,3,4],10)) // [2,3,4]
+
+
+// All Pass
+
+// Create a JavaScript function named allPass.
+// This function will take two parameters: an array of students scores and a numerical threshold.
+// It should check whether all numbers in the array are greater than the given threshold (all students have passed the exam).
+// The function should return true if all numbers meet this criterion, or false otherwise.
+
+const allPass = (scores, n) => scores.every(score => score > n)
+
+console.log(allPass([7,8,8,6,10],5)) // TRUE
+console.log(allPass([7,8,8,2],5)) // FALSE
+console.log(allPass([10,7,8,10,10,9],5)) // TRUE
+
+
+// Search Houses
+
+// Create a JavaScript function called searchHouses.
+// This function should take 3 parameters: an array of houses (objects, each having an id, a price and a location), a number (price) and a string (location).
+// It should return true of all the houses contain the location string in the name of their location and if they all below the price; otherwise return false.
+
+function searchHouses2(houses, price, location) {
+    let allLocation = houses.every(house => house.location.includes(location)); 
+    let allPrice = houses.every(house => house.price < price);
+    return !allLocation || !allPrice ? false : true
+}
+
+// Simplified function (not sure if it would be good or too complex for a one liner)
+
+const searchHouses = (houses, price, location) => houses.every(house => house.location.includes(location)) && houses.every(house => house.price < price)
+
+// Tests
+
+console.log(searchHouses([{'price':100,'location':'Koh Phangan'},{'price':50,'location':'Koh Samui'}],150,'Koh')) // TRUE
+console.log(searchHouses([{'price':100,'location':'Koh Phangan'},{'price':50,'location':'Koh Samui'}],150,'Bali')) // FALSE
+console.log(searchHouses([{'price':100,'location':'Koh Phangan'},{'price':50,'location':'Koh Samui'}],90,'Koh')) // FALSE
+console.log(searchHouses([{'price':100,'location':'Bali'},{'price':80,'location':'Koh Samui'}],90,'Bali')) // FALSE
+
+
+// Refactoring Reduce
+// You are provided with a function that takes an array of numbers and calculates the sum of all the numbers.
+// Currently, the function uses a for loop to accomplish this.
+// Your task is to refactor this function to use the reduce() method instead, to make the code more concise and functional.
+
+// function sumNumbers(numbers) {
+//     let sum = 0
+//     for (let i = 0; i < numbers.length; i++) {
+//         sum += numbers[i]
+//     }
+//     return sum
+// }
+
+function sumNumbers1(numbers) {
+    let sum = 0
+    for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i]
+    }
+    return sum
+}
+
+const sumNumbers = (numbers) => numbers.reduce((acc, number) => acc + number)
+
+console.log(sumNumbers([1,2,3,4,5])) // 15
+console.log(sumNumbers([10,10])) // 20
+console.log(sumNumbers([-5,-3,8])) // 0
+
+
+
+// Sum of Even Numbers
+
+// Create a JavaScript function named sumOfEvenNumbers.
+// This function will take an array of numbers as its input.
+// It should first use the filter() method to keep only the even numbers from the array.
+// Then, use the reduce() method to calculate and return the sum of these even numbers.
+
+const sumOfEvenNumbers = numbers => numbers.filter(n => n % 2 === 0).reduce((acc, n) => acc + n)
+
+console.log(sumOfEvenNumbers([1,2,3,4,5,6])) // 12
+console.log(sumOfEvenNumbers([20,1,20,1])) // 40
+
+
+// Refactor Sort
+
+// You are given a function that takes an array of numbers and returns a new array with the numbers sorted in ascending order.
+// The current implementation sorts the array using a for loop.
+// Your task is to refactor this function to use the sort() method instead, for a more efficient and idiomatic approach.
+
+function sortNumbers1(numbers) {
+    for (let i = 0; i < numbers.length; i++) {
+        for (let j = i + 1; j < numbers.length; j++) {
+            if (numbers[i] > numbers[j]) {
+                let temp = numbers[i];
+                numbers[i] = numbers[j];
+                numbers[j] = temp;
+            }
+        }
+    }
+    return numbers;
+}
+
+const sortNumbers = numbers => numbers.sort((a, b) => a - b)
+
+
+// Sort Names
+// Create a sortNames function that takes an array of strings (names) and returns the array sorted alphabetically.
+
+const sortNames = names => names.sort()
+
+
+// Filter Best Books
+
+// Create a function named filterAndSortBooks.
+// This function will take two parameters: an array of book objects and a minimum rating value.
+// Each book object contains a title, an author, and a rating. The function should first use the filter() method to keep only the books with a rating greater than or equal to the minimum rating value.
+// Then, it should use the sort() method to sort these filtered books in descending order of their ratings.
+// The function should return the sorted array of books.
+
+const filterAndSortBooks = (books, minRating) => books.filter(book => book.rating >= minRating).sort((a,b) => b.rating - a.rating)
+
+// Tests
+
+console.log(filterAndSortBooks([{'title':'The Great Gatsby','author':'F. Scott Fitzgerald','rating':8.5},{'title':'1984','author':'George Orwell','rating':9},{'title':'To Kill a Mockingbird','author':'Harper Lee','rating':8.3}],8.4)) // [{'title':'1984','author':'George Orwell','rating':9},{'title':'The Great Gatsby','author':'F. Scott Fitzgerald','rating':8.5}]
+console.log(filterAndSortBooks([{'title':'Atomic Habits','author':'James Clear','rating':9},{'title':'Mindset','author':'Carol Dwecks','rating':9},{'title':'Dare to Lead','author':'Brene Brown','rating':7.2}],7.3)) // [{'title':'Atomic Habits','author':'James Clear','rating':9},{'title':'Mindset','author':'Carol Dwecks','rating':9}]
