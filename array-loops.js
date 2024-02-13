@@ -361,7 +361,10 @@ function searchHouses2(houses, price, location) {
 
 // Simplified function (not sure if it would be good or too complex for a one liner)
 
-const searchHouses = (houses, price, location) => houses.every(house => house.location.includes(location)) && houses.every(house => house.price < price)
+const searchHouses = (houses, price, location) => 
+    houses.every(house => 
+        house.location.includes(location) && house.price < price);
+
 
 // Tests
 
