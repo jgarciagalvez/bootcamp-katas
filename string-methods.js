@@ -174,5 +174,29 @@ function betterThanAverage(classPoints, yourPoints) {
   console.log(betterThanAverage([2, 3], 5))
 
 
+  function disemvowel(str) {
+    let vowels = ['a', 'e', 'i', 'o', 'u']
+    let strArray = str.split('')
+    return strArray.filter( letter => !vowels.includes(letter.toLowerCase())).join('')   
+  }
+
+
+  function disemvowel2(str) {
+    let vowels = ['a', 'e', 'i', 'o', 'u']
+    let strArray = str.split('')
+    let resultArray = []
+    for (let i = 0; i < strArray.length; i++) {
+        if (!vowels.includes(strArray[i])) {
+            resultArray.push(strArray[i])
+        }
+    }
+    return resultArray.join('')
+  }
+
+  console.log(disemvowel("This website is for losers LOL!")) // "Ths wbst s fr lsrs LL!")
+  console.log(disemvowel("No offense but,\nYour writing is among the worst I've ever read")) // "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd")
+  console.log(disemvowel("What are you, a communist?")) //"Wht r y,  cmmnst?
+
+
 
   
